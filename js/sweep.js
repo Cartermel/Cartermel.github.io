@@ -1,5 +1,8 @@
 //Minesweeper in javascript!
 //Author: Carter Melnychuk, 2020/21
+//---------------------------------------------------------------------
+//------------------------VERSION 1.0----------------------------------
+//---------------------------------------------------------------------
 //feel free to use this code for whatever you want! (it's super messy!)
 //This version works... 90% of the time!
 //I've given up fixing it because I got bored.
