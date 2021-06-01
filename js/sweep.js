@@ -4,6 +4,7 @@
 //------------------------VERSION 1.0----------------------------------
 //---------------------------------------------------------------------
 //feel free to use this code for whatever you want! (it's super messy!)
+//and not commented at all...! So good luck!
 //This version works... 90% of the time!
 //I've given up fixing it because I got bored.
 //but it is playable!
@@ -33,7 +34,6 @@ let seconds = 0;
 let start;
 let socket;
 
-initHighScores();
 createMap();
 grid.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -273,6 +273,7 @@ function incrementSeconds() {
 }
 
 function initHighScores() {
+    //was for node.js version of site
     return;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
