@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweeper!</title>
+</head>
+
+<body>
+    <div class="container">
+        <button class="difficulty" onclick="location.href=`index.html`" type="button">Back to Homepage</button>
+    </div>
+
+    <div class="container">
+        <div class="stats-div-border">
+            <div class="stats-div">
+                <div class="stat-left">
+                    <div class="flagdiv" id="flag-ui">999</div>
+                </div>
+                <div class="resetdiv"><button class="newgame" id="newGameBtn" onclick="updateGrid();"></button></div>
+                <div class="stat-right">
+                    <div class="timediv" id="timer">000</div>
+                </div>
+            </div>
+        </div>
+
+        <table id=grid></table>
+    </div>
+
+    <div class="container">
+        <div class="stats-div-border">
+            <div class="settings-div">
+                <div class="left">
+                    <button class="difficulty" onclick="changeDif(1)">Easy</button>
+                </div>
+                <div class="middle">
+                    <button class="difficulty" onclick="changeDif(2)">Medium</button>
+                </div>
+                <div class="right">
+                    <button class="difficulty" onclick="changeDif(3)">Hard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="winscreen" id="windiv">
+        <div class="winText">
+            <h1>You Win!</h1>
+            <div>In the non github pages version, this is where you would submit your score...<br>But here it doesn't
+                work, so... <br>That's it.</div>
+        </div>
+        <div class="info">
+            <form>
+                <div class="infoContainer">
+                    <p>Username:</p>
+                    <input id="user" maxlength="40" name="user">
+                    <input id="score" name="score" style="display: none;">
+                    <input id="diff" name="diff" style="display: none;">
+                </div>
+
+                <div class="infobtns">
+                    <input type="submit" id="submit" value="Submit" class="btn1">
+                    <input type="button" onclick="updateGrid();" value="New Game" class="btn1">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="js/sweep.js"></script>
+<link rel="stylesheet" type="text/css" href="style/sweepstyle.css" />
+
+</html>

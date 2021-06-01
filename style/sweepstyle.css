@@ -1,0 +1,298 @@
+@font-face {
+    font-family: "digital-font";
+    src: url('../res/DS-DIGIB.TTF') format("truetype");
+}
+
+BODY {
+    background: #C0C0C0;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: auto;
+}
+
+H1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#grid TR TD {
+    cursor: default;
+    font-weight: bold;
+    image-rendering: pixelated;
+    background: url('../res/tiles/empty_tile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+}
+
+#grid TR TD.clicked {
+    background: url('../res/tiles/tile_0.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#grid TR TD.flagged {
+    background: url('../res/tiles/flag.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#grid TR TD.mineclicked {
+    background: url('../res/tiles/mine.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#grid TR TD.mine {
+    background: url('../res/tiles/minenotmined.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+table {
+    width: 1210px;
+    height: 610;
+    border-spacing: 0px;
+    border: 5px outset;
+}
+
+.tile-1 {
+    color: #1100ff;
+}
+
+.tile-2 {
+    color: #00570e;
+}
+
+.tile-3 {
+    color: #FF0000;
+}
+
+.tile-4 {
+    color: #1a0000;
+}
+
+.tile-5 {
+    color: #00c3ff;
+}
+
+.tile-6 {
+    color: #a50000;
+}
+
+.tile-7 {
+    color: #004b44;
+}
+
+.tile-8 {
+    color: #FFD700;
+}
+
+button {
+    outline: none;
+    border-style: outset;
+    background: #C0C0C0;
+}
+
+button:active {
+    outline: none;
+    border-style: inset;
+}
+
+.winscreen {
+    -moz-box-shadow: 0 0 10px black;
+    -webkit-box-shadow: 0 0 10px black;
+    box-shadow: 0 0 10px black;
+    width: 400px;
+    padding: 10px;
+    background: url('../res/sweepbg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    display: none;
+}
+
+.infobtns {
+    display: flex;
+}
+
+.btn1 {
+    margin-left: 5px;
+    height: 50px;
+    background: #C0C0C0;
+    outline: none;
+    flex: 1;
+    border: 5px outset;
+}
+
+.btn1:active {
+    outline: none;
+    border-style: inset;
+}
+
+.infoContainer {
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+p {
+    margin: 0px;
+    margin-right: 10px;
+}
+
+#user {
+    padding: 5px;
+}
+
+.stats-div {
+    display: flex;
+    align-items: center;
+    color: rgb(255, 0, 0);
+    margin: 20px;
+    border: 5px inset;
+}
+
+.settings-div {
+    display: flex;
+    align-items: center;
+    color: black;
+    margin: 20px;
+    border: 5px inset;
+}
+
+.stats-div-border {
+    border: 5px outset;
+}
+
+.container {
+    width: 1210px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-left {
+    text-align: left;
+    flex: 1;
+    font-family: "digital-font";
+    font-size: 50px;
+    margin-left: 25px;
+}
+
+.stat-right {
+    text-align: right;
+    flex: 1;
+    font-family: "digital-font";
+    font-size: 50px;
+    margin-right: 25px;
+}
+
+.resetdiv {
+    flex: 1;
+}
+
+.newgame {
+    margin: 10px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-image: url('../res/gameGoing.png');
+    background-size: cover;
+    image-rendering: pixelated!important;
+}
+
+.flagdiv {
+    width: 100px;
+    text-align: center;
+    background: black;
+    border: 3px inset;
+}
+
+.timediv {
+    float: right;
+    width: 100px;
+    text-align: center;
+    background: black;
+    border: 3px inset;
+}
+
+.left {
+    flex: 1;
+}
+
+.middle {
+    flex: 1;
+}
+
+.right {
+    flex: 1;
+}
+
+.difficulty {
+    width: 100%;
+    height: 50px;
+    border: 5px outset;
+}
+
+.score-table {
+    width: 100%;
+    border: none;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+li {
+    text-align: left;
+}
+
+.lists {
+    display: flex;
+}
+
+ol {
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 25px;
+    border: 5px inset;
+}
+
+h3 {
+    margin: 5px;
+}
+
+.li-item {
+    display: flex;
+}
+
+.first {
+    flex: 5;
+}
+
+.second {
+    flex: 1;
+}
+
+.form-end-container {
+    margin: 20px;
+}
+
+.container-page2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
