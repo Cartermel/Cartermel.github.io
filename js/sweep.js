@@ -13,7 +13,7 @@ let totalTiles = $width * $height;
 let totalMines = 160;
 let map = [];
 let mineList = [];
-let mineSet = new Set();//used to make sure no duplicate mines
+let mineSet = new Set();//used to make sure no duplicate mines (??? SLIGHTLY WORKS?)
 let game_over = false;
 let flagCount = 0;
 let winScreen = document.getElementById('windiv');
@@ -49,6 +49,9 @@ function setFlagUI() {
 }
 
 function updateGrid() {
+    //THIS WORKS IF YOU SET DIFFICULTY AND TOTAL MINES
+    //IF NOT THE NUMBER OF MINES GETS REDUCED OVER AND OVER FOR SOME REASON???
+    //so if you want to fix it there you go :)
     clearInterval(start);
     timer.innerHTML = "000";
     firstClick = true;
