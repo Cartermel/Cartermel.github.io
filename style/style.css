@@ -86,4 +86,9 @@ p {
 
 #minesweeper:hover{
     background: url('../res/tiles/empty_tile.png');
+    background-position-y: center;
+    image-rendering: pixelated;
+    background-size: 50px 50px;
+    color: #000;
+    text-shadow: 1px 1px 10px #fff;
 }
