@@ -11,8 +11,8 @@
 
 var grid = document.getElementById("grid");
 var testMode = false; //Turn this variable to true to see where the mines are
-let $width = 20//window.innerHeight /16;
-let $height = 40//window.innerWidth /16;
+let $width = 20
+let $height = 40
 let totalTiles = $width * $height;
 let totalMines = 160;
 let map = [];
@@ -128,7 +128,7 @@ function addMines() {
             mineList.push([row, col]);
             mineSet.add(`${row},${col}`);
         }
-        //if (testMode) grid.rows[row].cells[col].innerHTML = "X";
+        if (testMode) grid.rows[row].cells[col].innerHTML = "X";
     }
     totalMines = mineList.length;
     allowedFlags = totalMines;
