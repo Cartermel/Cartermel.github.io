@@ -6,14 +6,14 @@ body {
 }
 
 header {
-    /* Fixes header in place */
-    position: fixed;
-    top: 0;
     width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 canvas {
-    margin: 50px;
     cursor: none;
 }
 
@@ -27,18 +27,13 @@ td {
     text-align: center;
 }
 
-/* 
-
-html::-webkit-scrollbar {
-    display: none;
+h1 {
+    margin: 0;
 }
 
-html {
-    -ms-overflow-style: none;
-   
-    scrollbar-width: none;
-    
-}*/
+#container{
+    height: 90vh;
+}
 
 @keyframes fadein {
     from {
@@ -79,12 +74,13 @@ html {
     }
 }
 
-svg{
+svg {
     overflow: visible!important;
     position: fixed;
-    pointer-events: none
+    pointer-events: none;
+    display: none;
 }
 
-circle{
+circle {
     border: 1px solid #fff;
 }

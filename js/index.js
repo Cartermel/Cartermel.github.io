@@ -5,6 +5,11 @@ let stateHistory = [];
 let currentState;
 
 let customCursor = document.getElementById("custom_cursor");
+let container = document.getElementById("container");
+let header = document.getElementById("header");
+let cHeight = container.clientHeight;
+let cursorOffset = header.clientHeight;
+
 
 window.onmousedown = (e) => { if (e.which === 2) e.preventDefault(); }
 
@@ -12,10 +17,9 @@ document.onkeydown = () => {
 	changeColor(Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256));
 }
 
-
 function setup() {
-	cnv = createCanvas(1000, 500);
-	cnv.parent('container');
+	cnv = createCanvas(window.innerWidth, cHeight);
+	cnv.parent(container);
 	cnv.mouseOut(() => { customCursor.style.display = "none"; });
 	cnv.mouseOver(() => { customCursor.style.display = "inline"; });
 
@@ -24,8 +28,8 @@ function setup() {
 	strokeWeight(50);
 
 	document.addEventListener("mousemove", e => {
-		offsetX = mouseX + 50;
-		offsetY = mouseY + 50;
+		offsetX = mouseX;
+		offsetY = mouseY + cursorOffset;//HEADER HEIGHT
 		customCursor.style.transform = "translate(" + offsetX + "px" + "," + offsetY + "px" + ") scale(1)";
 	});
 }
@@ -76,4 +80,10 @@ function saveState() {
 
 function changeColor(r, g, b) {
 	stroke(r, g, b);
+}
+
+function windowResized(){
+	//header height changes on resize as it's dynamic
+	//we have to reset the cursorOffset
+	cursorOffset = header.clientHeight;
 }
