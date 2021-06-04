@@ -3,11 +3,12 @@ body {
     margin: 0;
     background: #444;
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
 header {
     width: 100%;
-    height: 10vh;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,10 +32,6 @@ h1 {
     margin: 0;
 }
 
-#container {
-    height: 90vh;
-}
-
 #colorpicker {
     padding: 0;
     margin: 0;
@@ -44,6 +41,7 @@ h1 {
 }
 
 /*remove border from color input*/
+
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
 }
@@ -83,18 +81,6 @@ input[type="color"]::-webkit-color-swatch {
     text-shadow: 1px 1px 10px #fff;
 }
 
-@media (max-width:1000px) {
-    .row h1 {
-        font-size: 1em;
-    }
-    .col2 {
-        flex-direction: column!important;
-    }
-    .row {
-        height: 20vh;
-    }
-}
-
 svg {
     overflow: visible!important;
     position: fixed;
@@ -104,4 +90,21 @@ svg {
 
 circle {
     border: 1px solid #fff;
+}
+
+/*lines below set canvas to take up remaining page*/
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.box .row.content {
+    flex: 1 1 auto;
 }

@@ -7,10 +7,12 @@ let currentState;
 let customCursor = document.getElementById("custom_cursor");
 let container = document.getElementById("container");
 let header = document.getElementById("header");
-let cHeight = container.clientHeight;
-let cursorOffset = header.clientHeight;
+let cHeight;
+let cursorOffset;
+console.log(cursorOffset);
 
 function setup() {
+	cHeight = container.clientHeight;
 	cnv = createCanvas(window.innerWidth, cHeight);
 	cnv.parent(container);
 	cnv.mouseOut(() => { customCursor.style.display = "none"; });
@@ -25,6 +27,7 @@ function setup() {
 		offsetY = mouseY + cursorOffset;//HEADER HEIGHT
 		customCursor.style.transform = "translate(" + offsetX + "px" + "," + offsetY + "px" + ") scale(1)";
 	});
+	cursorOffset = header.clientHeight;
 }
 
 function draw() {
@@ -71,7 +74,7 @@ function changeColor(hex) {
 	stroke(rgb.r, rgb.g, rgb.b);
 }
 
-function hexToRgb(hex) {
+function hexToRgb(hex) {//from https://stackoverflow.com/a/5624139
 	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 	return {
 		r: parseInt(result[1], 16),
