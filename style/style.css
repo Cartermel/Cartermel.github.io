@@ -13,8 +13,8 @@ header {
 }
 
 canvas {
-    margin: 5%;
-    cursor: url("../res/cursor.png") 25 25, auto;
+    margin: 50px;
+    cursor: none;
 }
 
 tr, td {
@@ -27,20 +27,18 @@ td {
     text-align: center;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* 
 
 html::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-
 html {
     -ms-overflow-style: none;
-    /* IE and Edge */
+   
     scrollbar-width: none;
-    /* Firefox */
-}
+    
+}*/
 
 @keyframes fadein {
     from {
@@ -79,4 +77,14 @@ html {
     .row {
         height: 20vh;
     }
+}
+
+svg{
+    overflow: visible!important;
+    position: fixed;
+    pointer-events: none
+}
+
+circle{
+    border: 1px solid #fff;
 }
