@@ -16,10 +16,13 @@ document.onkeydown = () => {
 function setup() {
 	cnv = createCanvas(1000, 500);
 	cnv.parent('container');
+	cnv.mouseOut(() => { customCursor.style.display = "none"; });
+	cnv.mouseOver(() => { customCursor.style.display = "inline"; });
 
 	background(255);
 	stroke(0);
 	strokeWeight(50);
+
 	document.addEventListener("mousemove", e => {
 		offsetX = mouseX + 50;
 		offsetY = mouseY + 50;
