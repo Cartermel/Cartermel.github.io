@@ -10,13 +10,6 @@ let header = document.getElementById("header");
 let cHeight = container.clientHeight;
 let cursorOffset = header.clientHeight;
 
-
-window.onmousedown = (e) => { if (e.which === 2) e.preventDefault(); }
-
-document.onkeydown = () => {
-	changeColor(Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256));
-}
-
 function setup() {
 	cnv = createCanvas(window.innerWidth, cHeight);
 	cnv.parent(container);
@@ -38,11 +31,6 @@ function draw() {
 	if (mouseIsPressed) {
 		if (mouseButton === LEFT) {
 			line(mouseX, mouseY, pmouseX, pmouseY);
-		}
-		if (mouseButton === CENTER) {
-			background(255);
-			translate(mouseX, mouseY)
-			image(currentState, 0, 0);
 		}
 	}
 }
@@ -78,11 +66,21 @@ function saveState() {
 	stateHistory.push(get());
 }
 
-function changeColor(r, g, b) {
-	stroke(r, g, b);
+function changeColor(hex) {
+	let rgb = hexToRgb(hex);
+	stroke(rgb.r, rgb.g, rgb.b);
 }
 
-function windowResized(){
+function hexToRgb(hex) {
+	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return {
+		r: parseInt(result[1], 16),
+		g: parseInt(result[2], 16),
+		b: parseInt(result[3], 16)
+	};
+}
+
+function windowResized() {
 	//header height changes on resize as it's dynamic
 	//we have to reset the cursorOffset
 	cursorOffset = header.clientHeight;

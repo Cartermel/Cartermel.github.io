@@ -31,8 +31,29 @@ h1 {
     margin: 0;
 }
 
-#container{
+#container {
     height: 90vh;
+}
+
+#colorpicker {
+    padding: 0;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+
+/*remove border from color input*/
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+::-moz-color-swatch {
+    border: none;
 }
 
 @keyframes fadein {
