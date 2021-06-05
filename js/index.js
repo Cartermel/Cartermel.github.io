@@ -83,6 +83,7 @@ function changeBrushSize(size){
 
 function changeColor(hex) {
 	let rgb = hexToRgb(hex);
+	brushSizeDisplay.style.background = hex;
 	stroke(rgb.r, rgb.g, rgb.b);
 }
 
