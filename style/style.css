@@ -92,6 +92,13 @@ circle {
     border: 1px solid #fff;
 }
 
+.brush_size_display{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000;
+}
+
 /*lines below set canvas to take up remaining page*/
 
 html, body {

@@ -1,15 +1,17 @@
-let scrollSpeed = 10;
+//canvas
 let cnv;
 
+//undo vars
 let stateHistory = [];
 let currentState;
 
 let customCursor = document.getElementById("custom_cursor");
+let cursorCircles = document.getElementsByClassName("cursor_circles");
 let container = document.getElementById("container");
 let header = document.getElementById("header");
+let brushSizeDisplay = document.getElementById("brush_size_display");
 let cHeight;
 let cursorOffset;
-console.log(cursorOffset);
 
 function setup() {
 	cHeight = container.clientHeight;
@@ -67,6 +69,16 @@ function undoToPrevState() {
 
 function saveState() {
 	stateHistory.push(get());
+}
+
+function changeBrushSize(size){
+	size = parseInt(size);
+	console.log(size);
+	brushSizeDisplay.style.width = size + "px";
+	brushSizeDisplay.style.height = size + "px";
+	strokeWeight(size);
+	cursorCircles[0].style.r = size/2;
+	cursorCircles[1].style.r = size/2 - 1;
 }
 
 function changeColor(hex) {
