@@ -3,9 +3,13 @@ const cvHeight = window.innerHeight;
 const cellSize = 50;//px
 const numCellsX = Math.ceil(cvWidth / cellSize);
 const numCellsY = Math.ceil(cvHeight / cellSize);
-
 const startingColor = 50;
+
 let cnv;
+let customCursor = document.getElementById('cursor_pos');
+let cvContainer = document.getElementById('cv_container');
+customCursor.style.height = cellSize - 4 + "px";
+customCursor.style.width = cellSize - 6 + "px";
 
 let cellArr = [];
 let animationArr = [];
@@ -18,6 +22,11 @@ let animating = false;
 let canFill = false;
 
 let hoveredCell = { row: 0, col: 0 };
+
+let stateHistory = {
+    img: [],
+    arr: []
+};
 
 document.addEventListener("keydown", (e) => {
     if (e.code == "Space") canFill = !canFill;
@@ -32,9 +41,17 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+function keyPressed(e) {//move above code to here
+    //check if ctrl z pressed and revert.
+    if (e.keyCode == 90 && (e.ctrlKey || e.metaKey)) {
+        undoToPrevState();
+    }
+}
+
 function setup() {
     cnv = createCanvas(cvWidth, cvHeight);
     cnv.class('main_cv');
+    cnv.parent(cvContainer);
     background(startingColor)
     noSmooth();
     for (let row = 0; row < numCellsY; row++) {
@@ -43,6 +60,7 @@ function setup() {
             cellArr[row][col] = [startingColor, startingColor, startingColor];
         }
     }
+    saveState();
 }
 
 function draw() {
@@ -66,6 +84,24 @@ function mouseClicked() {
     else if (!animating) {
         fillCell(row, col)
     }
+
+    if (mouseButton === LEFT) {
+        saveState();
+    }
+}
+
+function saveState() {
+    stateHistory.img.push(get());
+    stateHistory.arr.push(cellArr);
+}
+
+function undoToPrevState() {
+    if (stateHistory.img.length) {
+        console.log('????');
+        //draw last index of array to canvas and remove it with pop()
+        image(stateHistory.img.pop(), 0, 0)
+        cellArr = stateHistory.arr.pop();
+    }
 }
 
 function mouseDragged() {
@@ -76,8 +112,17 @@ function mouseDragged() {
     }
 }
 
+cvContainer.onmousemove = () => {
+    //customCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    let row = parseInt(mouseY / cellSize);
+    let col = parseInt(mouseX / cellSize);
+    customCursor.style.top = row * cellSize + "px";
+    customCursor.style.left = col * cellSize + "px";
+}
+
 function changeColor() {
     fillColor = [random(255), random(255), random(255)];
+    customCursor.style.background = `rgb(${fillColor[0]},${fillColor[1]},${fillColor[2]})`;
 }
 
 function fillCell(row, col) {
