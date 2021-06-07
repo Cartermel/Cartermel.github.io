@@ -30,16 +30,20 @@ let stateHistory = {
 
 document.addEventListener("keydown", (e) => {
     if (e.code == "Space") canFill = !canFill;
-    if (e.code == "Escape") {
-        for (cell of animationArr) {//skip animation
-            rect(cell.x * cellSize, cell.y * cellSize, cellSize, cellSize);
-        }
-        animationArr = [];
+    if (e.code == "Escape" && animating) {
+        skipAnimation();
     }
     if (e.code == "KeyC" && !animating) {
         changeColor();
     }
 });
+
+function skipAnimation() {
+    for (cell of animationArr) {
+        rect(cell.x * cellSize, cell.y * cellSize, cellSize, cellSize);
+    }
+    animationArr = [];
+}
 
 function keyPressed(e) {//move above code to here
     //check if ctrl z pressed and revert.
@@ -64,6 +68,7 @@ function setup() {
 }
 
 function draw() {
+    
     animating = animationArr.length;
     if (animating) {
         fill(fillColor[0], fillColor[1], fillColor[2])

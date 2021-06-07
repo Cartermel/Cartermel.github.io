@@ -1,5 +1,6 @@
 //canvas
 let cnv;
+let ctx;
 
 //undo vars
 let stateHistory = [];
@@ -10,8 +11,12 @@ let cursorCircles = document.getElementsByClassName("cursor_circles");
 let container = document.getElementById("container");
 let header = document.getElementById("header");
 let brushSizeDisplay = document.getElementById("brush_size_display");
+let bucketBtn = document.getElementById('bucket_btn');
+let colorSelector = document.getElementById('colorpicker');
 let cHeight;
 let cursorOffset;
+
+let bucketTool = false;
 
 function setup() {
 	cHeight = container.clientHeight;
@@ -19,6 +24,7 @@ function setup() {
 	cnv.parent(container);
 	cnv.mouseOut(() => { customCursor.style.display = "none"; });
 	cnv.mouseOver(() => { customCursor.style.display = "inline"; });
+	ctx = cnv.drawingContext;
 
 	background(255);
 	stroke(0);
@@ -33,11 +39,22 @@ function setup() {
 }
 
 function draw() {
+	noSmooth();
 	if (mouseIsPressed) {
 		if (mouseButton === LEFT) {
-			line(mouseX, mouseY, pmouseX, pmouseY);
+			if (!bucketTool) line(mouseX, mouseY, pmouseX, pmouseY);
+			else {
+				if(mouseX < 0 || mouseY < 0) return;
+				ctx.fillStyle = colorSelector.value; // colour to fill
+				ctx.fillFlood(mouseX, mouseY, 40);
+			}
 		}
 	}
+}
+
+function setFill() {
+	bucketTool = !bucketTool;
+	bucketBtn.innerHTML = `Bucket Tool = ${bucketTool}`;
 }
 
 function keyPressed(e) {
@@ -71,14 +88,14 @@ function saveState() {
 	stateHistory.push(get());
 }
 
-function changeBrushSize(size){
+function changeBrushSize(size) {
 	size = parseInt(size);
 	console.log(size);
 	brushSizeDisplay.style.width = size + "px";
 	brushSizeDisplay.style.height = size + "px";
 	strokeWeight(size);
-	cursorCircles[0].style.r = size/2;
-	cursorCircles[1].style.r = size/2 - 1;
+	cursorCircles[0].style.r = size / 2;
+	cursorCircles[1].style.r = size / 2 - 1;
 }
 
 function changeColor(hex) {

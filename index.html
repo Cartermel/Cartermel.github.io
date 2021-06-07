@@ -22,12 +22,13 @@
                 <input type="range" id="brushsize" name="brushsize" min="2" max="100" value="50" oninput="changeBrushSize(this.value)">
                 <div class="brush_size_display" id="brush_size_display"></div>
             </div>
+            <button onclick="setFill()" id="bucket_btn">Bucket Tool = false</button>
         </header>
 
         <main id="container" class="row content">
         </main>
     </div>
-
+    <script src="js/floodfill.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/p5.min.js"></script>
 </body>
