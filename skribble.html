@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <title>Cartermel - Home</title>
+</head>
+
+<body>
+    <svg width="100" height="100" id="custom_cursor">
+        <circle r="25" stroke="black" stroke-width="1" fill="transparent" class="cursor_circles"/>
+        <circle r="24" stroke="white" stroke-width="1" fill="transparent" class="cursor_circles"/>
+    </svg>
+    <div class="box">
+        <header class="row header" id="header">
+            <h1>Just testing right now cheers</h1>
+            <input type="color" id="colorpicker" name="colorpicker" value="#000000" onchange="changeColor(this.value)">
+            <div class="brush_size_container">
+                <input type="range" id="brushsize" name="brushsize" min="2" max="100" value="50" oninput="changeBrushSize(this.value)">
+                <div class="brush_size_display" id="brush_size_display"></div>
+            </div>
+            <button onclick="setFill()" id="bucket_btn">Bucket Tool = false</button>
+        </header>
+
+        <main id="container" class="row content">
+        </main>
+    </div>
+    <script src="js/floodfill.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/p5.min.js"></script>
+</body>
+
+</html>
