@@ -1,23 +1,18 @@
-//Minesweeper in javascript!
+//Minesweeper in Javascript
 //Author: Carter Melnychuk, 2020/21
-//---------------------------------------------------------------------
-//------------------------VERSION 1.0----------------------------------
-//---------------------------------------------------------------------
-//feel free to use this code for whatever you want! (it's super messy!)
-//and not commented at all...! So good luck!
-//This version works... 90% of the time!
-//I've given up fixing it because I got bored.
-//but it is playable!
+//
+//Feel free to use this code wherever/however you like
+//it's quite messy at the moment, but I'll clean it up eventually
 
 var grid = document.getElementById("grid");
-var testMode = false; //Turn this variable to true to see where the mines are
+var testMode = false; //set to true to see where the mines are
 let $width = 20
 let $height = 40
 let totalTiles = $width * $height;
 let totalMines = 160;
 let map = [];
 let mineList = [];
-let mineSet = new Set();//used to make sure no duplicate mines (??? SLIGHTLY WORKS?)
+let mineSet = new Set();//used to make sure no duplicate mines, somewhat buggy currently
 let game_over = false;
 let flagCount = 0;
 let winScreen = document.getElementById('windiv');
